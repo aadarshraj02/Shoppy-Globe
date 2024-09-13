@@ -1,4 +1,11 @@
 const Header = (): JSX.Element => {
+  const greeting = (): string => {
+    const currHour = new Date().getHours();
+    if (currHour < 12) return "Good Morning,";
+    if (currHour < 16) return "Good Afternoon,";
+    return "Good Evening,";
+  };
+
   return (
     <header>
       <nav className="flex justify-between items-center px-4 py-2 bg-[#1995AD] text-zinc-100">
@@ -16,6 +23,14 @@ const Header = (): JSX.Element => {
           <button>Cart</button>
         </div>
       </nav>
+      <div>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold">
+          {greeting()} Welcome to Shoppy Globe
+        </h1>
+        <p className="text-center">
+          ~An E-Commerce platform to buy your wishlist
+        </p>
+      </div>
     </header>
   );
 };
