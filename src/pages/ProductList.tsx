@@ -1,16 +1,28 @@
+import { InfinitySpin, TailSpin } from "react-loader-spinner";
 import ProductItem from "../components/ProductItem";
 import SearchProduct from "../components/SearchProduct";
 import useFetchProducts from "../hooks/useFetchProducts";
 
 const ProductList = (): JSX.Element => {
-  const { products, loading } = useFetchProducts();
+  const { products, loading, error } = useFetchProducts();
 
   const handleAddToCart = (id: number) => {
     console.log(`Product ${id} added to cart`);
   };
 
   if (loading) {
-    return <p className="text-center mt-6">Loading products...</p>;
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <InfinitySpin width="200" color="#1995AD" />
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-[60vh]">
+        <p className="text-red-500 text-2xl font-semibold">{error}</p>
+      </div>
+    );
   }
 
   return (

@@ -11,15 +11,16 @@ interface Product {
 const useFetchProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://dummyjson.com/products");
+        const response = await fetch("https://dummyjson.com/product");
         const data = await response.json();
         setProducts(data.products);
       } catch (err:any) {
-       return err.message
+        setError("Server Error Failed to Load Products...");
       } finally {
         setLoading(false);
       }
@@ -27,7 +28,7 @@ const useFetchProducts = () => {
     fetchProducts();
   }, []);
 
-  return { products, loading };
+  return { products, loading,error };
 };
 
 export default useFetchProducts;
