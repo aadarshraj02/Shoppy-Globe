@@ -1,4 +1,5 @@
 import { FaShoppingCart } from "react-icons/fa";
+import { IoIosStar } from "react-icons/io";
 
 interface ProductItemProps {
   id: number;
@@ -32,8 +33,15 @@ const ProductItem = ({
         className="h-56 w-full  bg-[#A1D6E2] mb-3 rounded-lg"
       />
       <h3 className="text-xl font-bold">{shortedTitle(name)}</h3>
-      <p className="text-gray-600">price:{price}</p>
-      <p className="text-xs text-gray-500">Rating:{rating}</p>
+      <p className="text-gray-600">
+        <span className="text-black">Price: </span>
+        {price}
+      </p>
+      <p className="text-xs text-gray-500 flex items-center gap-1">
+        {" "}
+        <span className="text-black">Rating:</span>{" "}
+        <IoIosStar className="text-yellow-500" /> {rating}
+      </p>
       <button
         onClick={() => onAddToCart(id)}
         className="bg-[#1995AD] hover:bg-[#356570] transition-all duration-300 ease-linear text-white px-4 py-2 mt-2 rounded flex items-center gap-1"
