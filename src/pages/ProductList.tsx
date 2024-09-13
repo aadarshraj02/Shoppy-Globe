@@ -1,4 +1,4 @@
-import { InfinitySpin, TailSpin } from "react-loader-spinner";
+import { InfinitySpin } from "react-loader-spinner";
 import ProductItem from "../components/ProductItem";
 import SearchProduct from "../components/SearchProduct";
 import useFetchProducts from "../hooks/useFetchProducts";
