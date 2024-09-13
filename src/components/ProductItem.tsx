@@ -17,6 +17,13 @@ const ProductItem = ({
   rating,
   onAddToCart,
 }: ProductItemProps): JSX.Element => {
+  const shortedTitle = (title: string) => {
+    if (title.length > 20) {
+      return title.substring(0, 20) + "...";
+    }
+    return title;
+  };
+
   return (
     <div className="border p-4 rounded-lg shadow hover:shadow-lg transition-all duration-200 ease-linear cursor-pointer">
       <img
@@ -24,7 +31,7 @@ const ProductItem = ({
         alt={name}
         className="h-56 w-full  bg-[#A1D6E2] mb-3 rounded-lg"
       />
-      <h3 className="text-xl font-bold">{name}</h3>
+      <h3 className="text-xl font-bold">{shortedTitle(name)}</h3>
       <p className="text-gray-600">price:{price}</p>
       <p className="text-xs text-gray-500">Rating:{rating}</p>
       <button
