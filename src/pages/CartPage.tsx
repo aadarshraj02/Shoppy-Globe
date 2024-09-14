@@ -7,6 +7,7 @@ import {
   removeFromCart,
 } from "../redux/slices/CartSlice";
 import { Link } from "react-router-dom";
+import CartItem from "../components/CartItem";
 
 const CartPage = (): JSX.Element => {
   const cartItems = useSelector((state: RootState) => state.cart.cart);
@@ -44,7 +45,20 @@ const CartPage = (): JSX.Element => {
             </div>
           </>
         ) : (
-          <div></div>
+          <div>
+            {cartItems.map((item) => (
+              <CartItem
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                price={item.price}
+                qty={item.qty}
+                onIncrement={() => handleIncrement(item.id)}
+                onDecrement={() => handleDecrement(item.id)}
+                onRemove={() => handleRemove(item.id)}
+              />
+            ))}
+          </div>
         )}
       </div>
     </>
