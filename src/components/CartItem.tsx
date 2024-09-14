@@ -12,7 +12,6 @@ interface CartItemProps {
 }
 
 const CartItem = ({
-  id,
   name,
   price,
   qty,
