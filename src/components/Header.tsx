@@ -31,15 +31,23 @@ const Header = (): JSX.Element => {
     <header>
       <nav className="flex justify-between items-center px-4 py-2 bg-[#1995AD] text-zinc-100 shadow-md">
         <div className="">
-          <h1 className="text-2xl font-bold">
-            Shoppy <span className="text-zinc-700 font-normal">Globe</span>
-          </h1>
+          <Link to="/">
+            <h1 className="text-2xl font-bold">
+              Shoppy <span className="text-zinc-700 font-normal">Globe</span>
+            </h1>
+          </Link>
         </div>
         <div className="hidden sm:flex items-center gap-6">
           <ul className="flex gap-6">
-            <li>About</li>
-            <li>Contact Us</li>
-            <li>Login</li>
+            <Link to="/about">
+              <li>About</li>
+            </Link>
+            <Link to="/contact">
+              <li>Contact Us</li>
+            </Link>
+            <Link to="/login">
+              <li>Login</li>
+            </Link>
           </ul>
           <Link to={"/cart"} className="flex gap-1 items-center">
             <FaShoppingCart /> Cart ({cartItemCount})
@@ -61,15 +69,22 @@ const Header = (): JSX.Element => {
         }`}
       >
         <ul className="flex flex-col items-start gap-6 px-6 py-3">
-          <li className="border-b w-[80%] pb-1 border-zinc-400 flex items-center gap-2">
-            <RiSearch2Fill className="text-zinc-600" /> About
-          </li>
-          <li className="border-b w-[80%] pb-1 border-zinc-400 flex items-center gap-2">
-            <IoMdContact className="text-zinc-600" /> Contact Us
-          </li>
-          <li className="border-b w-[80%] pb-1 border-zinc-400 flex items-center gap-2">
-            <MdPeople className="text-zinc-600" /> Login
-          </li>
+          <Link to="/about">
+            <li className="border-b w-[80%] pb-1 border-zinc-400 flex items-center gap-2">
+              <RiSearch2Fill className="text-zinc-600" /> About
+            </li>
+          </Link>
+          <Link to="/contact">
+            <li className="border-b w-[80%] pb-1 border-zinc-400 flex items-center gap-2">
+              <IoMdContact className="text-zinc-600" /> Contact Us
+            </li>
+          </Link>
+          <Link to="login">
+            {" "}
+            <li className="border-b w-[80%] pb-1 border-zinc-400 flex items-center gap-2">
+              <MdPeople className="text-zinc-600" /> Login
+            </li>
+          </Link>
           <Link to={"/cart"} className="flex items-center gap-2">
             <FaShoppingCart className="text-zinc-600" />
             Cart ({cartItemCount})
