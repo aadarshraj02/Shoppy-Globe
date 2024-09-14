@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/Checkout";
@@ -18,6 +19,7 @@ const App = (): JSX.Element => {
           <Route path="/order" element={<OrderSuccess />} />
           <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
