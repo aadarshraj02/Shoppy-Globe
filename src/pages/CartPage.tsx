@@ -5,12 +5,17 @@ import {
   incrementQty,
   decrementQty,
   removeFromCart,
+  selectTotalPrice,
+  selectTotalItems,
 } from "../redux/slices/CartSlice";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
 const CartPage = (): JSX.Element => {
   const cartItems = useSelector((state: RootState) => state.cart.cart);
+  const totalPrice = useSelector(selectTotalPrice);
+  const totalItems = useSelector(selectTotalItems);
+
   const dispatch = useDispatch();
 
   const handleIncrement = (id: number) => {
@@ -24,12 +29,6 @@ const CartPage = (): JSX.Element => {
   const handleRemove = (id: number) => {
     dispatch(removeFromCart(id));
   };
-
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price * item.qty,
-    0
-  );
-  const totalItems = cartItems.reduce((total, item) => total + item.qty, 0);
 
   return (
     <>
