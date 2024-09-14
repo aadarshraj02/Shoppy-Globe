@@ -3,11 +3,14 @@ import * as Yup from "yup";
 import { useSelector } from "react-redux";
 import { selectTotalItems, selectTotalPrice } from "../redux/slices/CartSlice";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../redux/slices/CartSlice";
 
 const CheckoutForm = () => {
   const totalPrice = useSelector(selectTotalPrice);
   const totalItems = useSelector(selectTotalItems);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required"),
@@ -27,6 +30,7 @@ const CheckoutForm = () => {
     onSubmit: () => {
       alert("Order successful!");
       navigate("/order");
+      dispatch(clearCart());
     },
   });
 
