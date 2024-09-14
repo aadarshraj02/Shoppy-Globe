@@ -2,9 +2,17 @@ import { InfinitySpin } from "react-loader-spinner";
 import ProductItem from "../components/ProductItem";
 import SearchProduct from "../components/SearchProduct";
 import useFetchProducts from "../hooks/useFetchProducts";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const ProductList = (): JSX.Element => {
   const { products, loading, error } = useFetchProducts();
+
+  const searchedText = useSelector((state: RootState) => state.search.search);
+
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchedText.toLowerCase())
+  );
 
   if (loading) {
     return (
@@ -13,6 +21,7 @@ const ProductList = (): JSX.Element => {
       </div>
     );
   }
+
   if (error) {
     return (
       <div className="flex justify-center items-center h-[60vh]">
@@ -25,7 +34,7 @@ const ProductList = (): JSX.Element => {
     <div>
       <SearchProduct />
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-3 gap-3">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductItem
             key={product.id}
             id={product.id}
