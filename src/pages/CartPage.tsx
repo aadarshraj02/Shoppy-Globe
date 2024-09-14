@@ -28,7 +28,7 @@ const CartPage = (): JSX.Element => {
   return (
     <>
       <div className="p-4">
-        <h1 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
+        <h1 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2 text-zinc-500">
           Your Cart <FaShoppingCart />
         </h1>
         {cartItems.length === 0 ? (
@@ -45,7 +45,7 @@ const CartPage = (): JSX.Element => {
             </div>
           </>
         ) : (
-          <div>
+          <div className="flex flex-col gap-2">
             {cartItems.map((item) => (
               <CartItem
                 key={item.id}
