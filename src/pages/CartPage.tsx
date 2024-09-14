@@ -32,7 +32,7 @@ const CartPage = (): JSX.Element => {
 
   return (
     <>
-      <div className="p-4">
+      <div className="p-4 sm:min-h-[75vh] h-screen">
         <h1 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2 text-zinc-500">
           Your Cart <FaShoppingCart />
         </h1>

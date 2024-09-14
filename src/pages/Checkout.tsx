@@ -35,7 +35,7 @@ const CheckoutForm = () => {
   });
 
   return (
-    <div className="p-4">
+    <div className="p-4 min-h-screen">
       <h2 className="text-2xl sm:text-3xl text-zinc-600 font-bold mb-4 text-center">
         Checkout
       </h2>

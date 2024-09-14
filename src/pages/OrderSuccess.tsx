@@ -8,7 +8,7 @@ const OrderSuccess = (): JSX.Element => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-[50vh]">
+    <div className="flex flex-col items-center justify-center h-[80vh]">
       <h2 className="text-3xl font-bold mb-4">Order Successful!</h2>
       <p className="text-xl mb-8">Thank you for your purchase.</p>
       <button
