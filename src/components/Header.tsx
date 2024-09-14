@@ -10,20 +10,20 @@ import { RootState } from "../redux/store";
 import { Link } from "react-router-dom";
 
 const Header = (): JSX.Element => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); //for mobile device to toggle menu
 
   const cartItemCount = useSelector(
-    (state: RootState) => state.cart.cart.length
+    (state: RootState) => state.cart.cart.length //count cart item 
   );
 
-  const greeting = (): string => {
+  const greeting = (): string => {  //conditional greeting
     const currHour = new Date().getHours();
     if (currHour < 12) return "Good Morning,";
     if (currHour < 16) return "Good Afternoon,";
     return "Good Evening,";
   };
 
-  const toggleMenu = () => {
+  const toggleMenu = () => {     //toggle menu
     setIsMenuOpen((prev) => !prev);
   };
 
@@ -31,12 +31,14 @@ const Header = (): JSX.Element => {
     <header>
       <nav className="flex justify-between items-center px-4 py-2 bg-[#1995AD] text-zinc-100 shadow-md">
         <div className="">
+          {/* added link for header to home page */}
           <Link to="/">
             <h1 className="text-2xl font-bold">
               Shoppy <span className="text-zinc-700 font-normal">Globe</span>
             </h1>
           </Link>
         </div>
+        {/* displayed link to get various routes */}
         <div className="hidden sm:flex items-center gap-6">
           <ul className="flex gap-6">
             <Link to="/about">
@@ -53,6 +55,7 @@ const Header = (): JSX.Element => {
             <FaShoppingCart /> Cart ({cartItemCount})
           </Link>
         </div>
+        {/* added only for mobile nav */}
         <div className="sm:hidden">
           <button onClick={toggleMenu}>
             {isMenuOpen ? (
@@ -91,6 +94,7 @@ const Header = (): JSX.Element => {
           </Link>
         </ul>
       </div>
+      {/* displayed greeting message */}
       <div className="text-center mt-2 hidden sm:block">
         <h1 className="sm:text-2xl md:text-3xl font-semibold text-zinc-600">
           {greeting()} Welcome to Shoppy Globe

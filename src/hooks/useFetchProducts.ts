@@ -14,6 +14,7 @@ const useFetchProducts = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // fetched all products
     const fetchProducts = async () => {
       try {
         const response = await fetch("https://dummyjson.com/product");

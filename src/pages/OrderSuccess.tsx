@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+//order success page with redirect to home button
+
 const OrderSuccess = (): JSX.Element => {
   const navigate = useNavigate();
 

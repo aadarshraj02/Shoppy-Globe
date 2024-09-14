@@ -1,4 +1,5 @@
 const About = (): JSX.Element => {
+  // A simple about page
   return (
     <div className=" py-10">
       <div className="container mx-auto px-4">
@@ -6,11 +7,11 @@ const About = (): JSX.Element => {
           About Shoppy Globe
         </h1>
         <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center">
-          Welcome to Shoppy Globe, your one-stop destination for premium products
-          from around the world. We are committed to bringing you the best
-          shopping experience with a wide range of products, unbeatable prices,
-          and exceptional customer service. Our goal is to provide a seamless
-          and enjoyable online shopping experience for everyone.
+          Welcome to Shoppy Globe, your one-stop destination for premium
+          products from around the world. We are committed to bringing you the
+          best shopping experience with a wide range of products, unbeatable
+          prices, and exceptional customer service. Our goal is to provide a
+          seamless and enjoyable online shopping experience for everyone.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

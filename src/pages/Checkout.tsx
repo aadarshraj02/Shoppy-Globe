@@ -6,12 +6,15 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../redux/slices/CartSlice";
 
+//checkout page with formik an yup validation
+
 const CheckoutForm = () => {
   const totalPrice = useSelector(selectTotalPrice);
   const totalItems = useSelector(selectTotalItems);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  //form validation
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required"),
     address: Yup.string().required("Address is required"),

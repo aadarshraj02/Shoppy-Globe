@@ -3,6 +3,7 @@ import { IoLogoLinkedin } from "react-icons/io5";
 import { SiLeetcode } from "react-icons/si";
 
 const Footer = (): JSX.Element => {
+  //a basic footer
   return (
     <div className="bg-[#1995AD] text-white w-full p-[19px] flex items-center justify-between">
       <p>Shoppy Globe &#169; &#8482;</p>

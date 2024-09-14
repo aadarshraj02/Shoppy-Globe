@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+//Basic error page for unknown routes
+
 const ErrorPage = (): JSX.Element => {
   return (
     <div className="sm:min-h-[75vh] min-h-screen flex flex-col items-center justify-center px-8">

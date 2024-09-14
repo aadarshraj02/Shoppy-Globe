@@ -4,8 +4,8 @@ import SearchSlice from "./slices/SearchSlice";
 
 const Store = configureStore({
   reducer: {
-    cart: CartSlice,
-    search: SearchSlice,
+    cart: CartSlice, //cart slice
+    search: SearchSlice, //search slice
   },
 });
 

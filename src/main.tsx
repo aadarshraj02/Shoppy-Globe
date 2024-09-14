@@ -7,6 +7,7 @@ import Store from "./redux/store.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    {/* provided store to use redux in entire app component */}
     <Provider store={Store}>
       <App />
     </Provider>

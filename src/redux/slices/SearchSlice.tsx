@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+//search slice for searching products
 interface SearchState {
   search: string;
 }

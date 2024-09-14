@@ -2,6 +2,8 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
+//contact page with validation
+
 const ContactUs = (): JSX.Element => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 

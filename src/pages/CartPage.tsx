@@ -12,22 +12,22 @@ import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
 const CartPage = (): JSX.Element => {
-  const cartItems = useSelector((state: RootState) => state.cart.cart);
-  const totalPrice = useSelector(selectTotalPrice);
-  const totalItems = useSelector(selectTotalItems);
+  const cartItems = useSelector((state: RootState) => state.cart.cart); //for cart Item
+  const totalPrice = useSelector(selectTotalPrice); //for total price
+  const totalItems = useSelector(selectTotalItems); //for total quantity
 
   const dispatch = useDispatch();
 
   const handleIncrement = (id: number) => {
-    dispatch(incrementQty(id));
+    dispatch(incrementQty(id)); //increment quantity of product
   };
 
   const handleDecrement = (id: number) => {
-    dispatch(decrementQty(id));
+    dispatch(decrementQty(id)); //decrement product quantity
   };
 
   const handleRemove = (id: number) => {
-    dispatch(removeFromCart(id));
+    dispatch(removeFromCart(id)); //remove product from cart
   };
 
   return (

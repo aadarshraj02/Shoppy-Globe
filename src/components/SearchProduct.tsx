@@ -6,12 +6,14 @@ const SearchProduct = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //function to handle search via redux
     dispatch(setSearch(e.target.value));
   };
 
   return (
     <div className="flex justify-center mt-2">
       <div className="relative w-full max-w-xs sm:max-w-lg">
+        {/* added input and on change display product */}
         <input
           type="text"
           placeholder="Search products..."
