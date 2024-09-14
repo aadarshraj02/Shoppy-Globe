@@ -7,6 +7,7 @@ import { IoMdContact } from "react-icons/io";
 import { RiSearch2Fill } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import { Link } from "react-router-dom";
 
 const Header = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,9 +41,9 @@ const Header = (): JSX.Element => {
             <li>Contact Us</li>
             <li>Login</li>
           </ul>
-          <button className="flex gap-1 items-center">
+          <Link to={"/cart"} className="flex gap-1 items-center">
             <FaShoppingCart /> Cart ({cartItemCount})
-          </button>
+          </Link>
         </div>
         <div className="sm:hidden">
           <button onClick={toggleMenu}>
@@ -69,10 +70,10 @@ const Header = (): JSX.Element => {
           <li className="border-b w-[80%] pb-1 border-zinc-400 flex items-center gap-2">
             <MdPeople className="text-zinc-600" /> Login
           </li>
-          <button className="flex items-center gap-2">
+          <Link to={"/cart"} className="flex items-center gap-2">
             <FaShoppingCart className="text-zinc-600" />
             Cart ({cartItemCount})
-          </button>
+          </Link>
         </ul>
       </div>
       <div className="text-center mt-2 hidden sm:block">
