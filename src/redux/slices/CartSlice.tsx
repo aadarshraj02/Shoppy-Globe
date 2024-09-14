@@ -9,10 +9,14 @@ interface CartItem {
 }
 interface CartState {
   cart: CartItem[];
+  totalItems: number;
+  totalPrice: number;
 }
 
 const initialState: CartState = {
   cart: [],
+  totalItems: 0,
+  totalPrice: 0,
 };
 
 const CartSlice = createSlice({
@@ -44,6 +48,11 @@ const CartSlice = createSlice({
     decrementQty: (state, action: PayloadAction<number>) => {
       const item = state.cart.find((item) => item.id === action.payload);
       if (item && item.qty > 1) item.qty -= 1;
+    },
+    clearCart: (state) => {
+      state.cart = [];
+      state.totalItems = 0;
+      state.totalPrice = 0;
     },
   },
 });
