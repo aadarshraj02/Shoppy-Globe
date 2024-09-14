@@ -53,6 +53,7 @@ const CartPage = (): JSX.Element => {
                 name={item.name}
                 price={item.price}
                 qty={item.qty}
+                image={item.image}
                 onIncrement={() => handleIncrement(item.id)}
                 onDecrement={() => handleDecrement(item.id)}
                 onRemove={() => handleRemove(item.id)}

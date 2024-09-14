@@ -27,8 +27,13 @@ const ProductItem = ({
 
   const dispatch = useDispatch();
 
-  const handleAddToCart = (id: number, name: string, price: number) => {
-    dispatch(addToCart({ id, name, price, qty: 1 }));
+  const handleAddToCart = (
+    id: number,
+    name: string,
+    price: number,
+    image: string
+  ) => {
+    dispatch(addToCart({ id, name, price, qty: 1, image }));
   };
 
   return (
@@ -49,7 +54,7 @@ const ProductItem = ({
         <IoIosStar className="text-yellow-500" /> {rating}
       </p>
       <button
-        onClick={() => handleAddToCart(id, name, price)}
+        onClick={() => handleAddToCart(id, name, price, image)}
         className="bg-[#1995AD] hover:bg-[#356570] transition-all duration-300 ease-linear text-white px-4 py-2 mt-2 rounded flex items-center gap-1"
       >
         <FaShoppingCart /> Add to Cart

@@ -5,6 +5,7 @@ interface CartItemProps {
   name: string;
   price: number;
   qty: number;
+  image: string;
   onIncrement: () => void;
   onDecrement: () => void;
   onRemove: () => void;
@@ -15,12 +16,16 @@ const CartItem = ({
   name,
   price,
   qty,
+  image,
   onIncrement,
   onDecrement,
   onRemove,
 }: CartItemProps): JSX.Element => {
   return (
     <div className="flex items-center border-b py-4">
+      <div className="flex-shrink-0">
+        <img src={image} alt={name} className="h-20 w-20 object-cover" />{" "}
+      </div>
       <div className="flex-grow">
         <h3 className="text-lg font-semibold">{name}</h3>
         <p className="text-gray-600">Price: ${price.toFixed(2)}</p>
