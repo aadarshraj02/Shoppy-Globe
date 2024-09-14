@@ -4,6 +4,7 @@ import About from "./pages/About";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/Checkout";
 import Contact from "./pages/Contact";
+import ErrorPage from "./pages/ErrorPage";
 import Login from "./pages/Login";
 import OrderSuccess from "./pages/OrderSuccess";
 import ProductDetails from "./pages/ProductDetails";
@@ -24,6 +25,7 @@ const App = (): JSX.Element => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
