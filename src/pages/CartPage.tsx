@@ -25,6 +25,12 @@ const CartPage = (): JSX.Element => {
     dispatch(removeFromCart(id));
   };
 
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.qty,
+    0
+  );
+  const totalItems = cartItems.reduce((total, item) => total + item.qty, 0);
+
   return (
     <>
       <div className="p-4">
@@ -61,6 +67,23 @@ const CartPage = (): JSX.Element => {
             ))}
           </div>
         )}
+        <div className="mt-4 p-4 border-t border-gray-300">
+          <div className="flex justify-between mb-2">
+            <span className="font-semibold">Total Items:</span>
+            <span>{totalItems}</span>
+          </div>
+          <div className="flex justify-between mb-4">
+            <span className="font-semibold">Total Price:</span>
+            <span>${totalPrice.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-center">
+            <Link to="/checkout">
+              <button className="bg-[#1995AD] hover:bg-[#356570] transition-all duration-300 ease-linear text-white px-6 py-3 rounded">
+                Checkout
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );
