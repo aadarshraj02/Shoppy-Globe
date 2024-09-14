@@ -31,10 +31,10 @@ const CartItem = ({
         />{" "}
         <div>
           <h3 className="text-sm sm:text-lg font-semibold">{name}</h3>
-          <p className="text-gray-600 text-sm sm:text-sm">
+          <p className="text-gray-600 text-sm sm:text-base">
             Price: ${price.toFixed(2)}
           </p>
-          <p className="text-gray-600 text-xs sm:text-base">Quantity: {qty}</p>
+          <p className="text-gray-600 text-xs sm:text-sm">Quantity: {qty}</p>
         </div>
       </div>
       <div className="flex items-center gap-3 ml-3 sm:ml-0">
