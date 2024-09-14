@@ -6,10 +6,6 @@ import useFetchProducts from "../hooks/useFetchProducts";
 const ProductList = (): JSX.Element => {
   const { products, loading, error } = useFetchProducts();
 
-  const handleAddToCart = (id: number) => {
-    console.log(`Product ${id} added to cart`);
-  };
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[60vh]">
@@ -37,7 +33,6 @@ const ProductList = (): JSX.Element => {
             price={`$${product.price}`}
             image={product.thumbnail}
             rating={product.rating}
-            onAddToCart={handleAddToCart}
           />
         ))}
       </div>
