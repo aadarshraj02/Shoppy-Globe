@@ -4,16 +4,20 @@ import SearchProduct from "../components/SearchProduct";
 import useFetchProducts from "../hooks/useFetchProducts";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import { useEffect, useState } from "react";
 
 const ProductList = (): JSX.Element => {
   const { products, loading, error } = useFetchProducts();
+  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
 
   const searchedText = useSelector((state: RootState) => state.search.search);
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchedText.toLowerCase())
-  );
-
+  useEffect(() => {
+    const filtered = products.filter((product) =>
+      product.title.toLowerCase().includes(searchedText.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  }, [products, searchedText]);
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[60vh]">
