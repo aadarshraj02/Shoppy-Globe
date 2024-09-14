@@ -5,9 +5,15 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdPeople } from "react-icons/md";
 import { IoMdContact } from "react-icons/io";
 import { RiSearch2Fill } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const Header = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const cartItemCount = useSelector(
+    (state: RootState) => state.cart.cart.length
+  );
 
   const greeting = (): string => {
     const currHour = new Date().getHours();
@@ -35,7 +41,7 @@ const Header = (): JSX.Element => {
             <li>Login</li>
           </ul>
           <button className="flex gap-1 items-center">
-            <FaShoppingCart /> Cart
+            <FaShoppingCart /> Cart ({cartItemCount})
           </button>
         </div>
         <div className="sm:hidden">
@@ -49,7 +55,7 @@ const Header = (): JSX.Element => {
         </div>
       </nav>
       <div
-        className={`fixed top-12 left-0 h-full w-64 bg-[#1995AD] text-zinc-100 transition-all duration-300 ease-in-out ${
+        className={`fixed top-12 left-0 h-full w-64 z-50 bg-[#1995AD] text-zinc-100 transition-all duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -65,7 +71,7 @@ const Header = (): JSX.Element => {
           </li>
           <button className="flex items-center gap-2">
             <FaShoppingCart className="text-zinc-600" />
-            Cart
+            Cart ({cartItemCount})
           </button>
         </ul>
       </div>
