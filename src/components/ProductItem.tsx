@@ -6,7 +6,7 @@ import { addToCart } from "../redux/slices/CartSlice";
 interface ProductItemProps {
   id: number;
   name: string;
-  price: string;
+  price: number;
   image: string;
   rating: number;
 }
@@ -40,7 +40,7 @@ const ProductItem = ({
       />
       <h3 className="text-xl font-bold">{shortedTitle(name)}</h3>
       <p className="text-gray-600">
-        <span className="text-black">Price: </span>
+        <span className="text-black">Price: $</span>
         {price}
       </p>
       <p className="text-xs text-gray-500 flex items-center gap-1">
@@ -49,7 +49,7 @@ const ProductItem = ({
         <IoIosStar className="text-yellow-500" /> {rating}
       </p>
       <button
-        onClick={() => handleAddToCart(id, name, parseFloat(price))}
+        onClick={() => handleAddToCart(id, name, price)}
         className="bg-[#1995AD] hover:bg-[#356570] transition-all duration-300 ease-linear text-white px-4 py-2 mt-2 rounded flex items-center gap-1"
       >
         <FaShoppingCart /> Add to Cart

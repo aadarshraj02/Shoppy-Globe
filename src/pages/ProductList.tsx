@@ -30,7 +30,7 @@ const ProductList = (): JSX.Element => {
             key={product.id}
             id={product.id}
             name={product.title}
-            price={`$${product.price}`}
+            price={product.price}
             image={product.thumbnail}
             rating={product.rating}
           />
