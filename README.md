@@ -1,5 +1,5 @@
 
-  # Online Library 📝  
+  # Shoppy Globe 📝  
  An e-Commerce website where you can search product add to cart explore details of products and much more..
    
   ## Live Demo
